@@ -13,7 +13,7 @@ python -m venv venv
 ```
 source venv/bin/activate
 ```
-> (추가) windows에서는 아래의 명령어를 입력하여 주시기 바랍니다.
+> windows에서는 아래의 명령어를 입력하여 주시기 바랍니다.
 ```
 source venv/Scripts/activate
 ```
