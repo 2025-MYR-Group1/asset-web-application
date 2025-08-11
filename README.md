@@ -1,7 +1,7 @@
 # asset-web-application
-2025 UCSI Malaysia Intership
+2025 UCSI Malaysia Intership Back-end 레포지토리입니다.
 
----
+
 ## 가상환경 생성
 > 작업시 가상환경을 생성해주세요.
 ```
