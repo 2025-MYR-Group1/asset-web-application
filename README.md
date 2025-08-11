@@ -13,11 +13,15 @@ python -m venv venv
 ```
 source venv/bin/activate
 ```
+> (추가) windows에서는 아래의 명령어를 입력하여 주시기 바랍니다.
+```
+source venv/Scripts/activate
+```
 
 ## 의존성 패키지 설치
 > 작업시 의존성 패키지를 설치해주세요.
 ```
-pip install -r requirments.txt
+pip install -r requirements.txt
 ```
 
 ## 의존성 패키지 업데이트
