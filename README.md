@@ -2,10 +2,16 @@
 2025 UCSI Malaysia Intership
 
 ---
-## 가상환경 구동
-> 작업시 가상환경을 활성화해주세요.
+## 가상환경 생성
+> 작업시 가상환경을 생성해주세요.
 ```
 python -m venv venv
+```
+
+## 가상환경 활성화
+> 프로젝트 루트에서 실행해주세요.
+```
+source venv/bin/activate
 ```
 
 ## 의존성 패키지 설치
