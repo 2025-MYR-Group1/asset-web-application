@@ -230,4 +230,5 @@ $RECYCLE.BIN/
 
 # personal settings
 docs/
-.cursorrules
+.cursor/
+.idea/
