@@ -227,3 +227,8 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# personal settings
+docs/
+.cursor/
+.idea/

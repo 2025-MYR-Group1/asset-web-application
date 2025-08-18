@@ -29,6 +29,14 @@ pip install -r requirements.txt
 pip freeze > requirements.txt
 ```
 
+## 개발 서버 실행 (FastAPI)
+```
+uvicorn app.main:app --reload
+```
+
+## 간단한 헬스체크 엔드포인트
+- `GET /health` → `{ "status": "ok" }`
+
 ## Commit Message Convetion Type 
 > 커밋 메세지 앞에 접두사(prefix)를 붙입니다.
 
