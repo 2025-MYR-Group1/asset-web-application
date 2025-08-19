@@ -12,18 +12,10 @@ engine = create_engine(postgres_url)
 
 
 def create_db_and_tables():
-    """
-    Create all tables in the database
-    """
-
     SQLModel.metadata.create_all(engine)
 
 
 def get_session():
-    """
-    Get a session from the database
-    """
-
     with Session(engine) as session:
         yield session
 

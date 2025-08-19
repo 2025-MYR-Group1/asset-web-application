@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
-from app.api.v1.routers import api_v1_router
+
+from app.api.routers import api_router
 
 
 def create_app() -> FastAPI:
@@ -15,8 +16,8 @@ def create_app() -> FastAPI:
 	def value_error_handler(_, exc: ValueError):
 		return JSONResponse(status_code=400, content={"detail": str(exc)})
 
-	# API v1 라우터 마운트
-	app.include_router(api_v1_router, prefix="/api/v1")
+	# API 라우터 마운트
+	app.include_router(api_router, prefix="/api")
 
 	return app
 

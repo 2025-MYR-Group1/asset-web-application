@@ -44,3 +44,5 @@ class AssetRepository:
 
     def get_asset(self, session: Session, asset_id: int) -> Optional[Assets]:
         return session.get(Assets, asset_id)
+
+				
