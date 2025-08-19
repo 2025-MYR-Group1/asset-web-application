@@ -1,9 +1,9 @@
 from datetime import date, datetime
-from typing import Annotated
+from decimal import Decimal
 
-from fastapi import Depends, FastAPI, HTTPException, Query
-from sqlalchemy import create_engine
-from sqlmodel import Field, Session, SQLModel, create_engine, select
+from sqlmodel import Field, SQLModel
+from sqlalchemy import Column
+from sqlalchemy.types import Numeric
 
 
 class Assets(SQLModel, table=True):
@@ -14,7 +14,7 @@ class Assets(SQLModel, table=True):
     category: str = Field(max_length=255)
     type: str = Field(max_length=255)
     brand: str = Field(max_length=255)
-    model: str = Field(max_length=255)
+    name: str = Field(max_length=255)
     supplier: str = Field(max_length=255)
 
     serial_no: str = Field(max_length=255)
@@ -30,7 +30,10 @@ class Assets(SQLModel, table=True):
 
     manager_name: str = Field(max_length=255)
     status: str = Field(max_length=255)
-    depreciation: int = Field(default=0)
+    depreciation: Decimal = Field(
+        default=Decimal("0.00"),
+        sa_column=Column(Numeric(12, 2), nullable=False, server_default="0")
+    )
 
     created_at: datetime | None = Field(default=datetime.now())
     updated_at: datetime | None = Field(default=datetime.now())

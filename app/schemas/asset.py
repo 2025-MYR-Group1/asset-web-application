@@ -1,15 +1,14 @@
 from datetime import date, datetime
+from decimal import Decimal
 
 from sqlmodel import Field, SQLModel
 
 
 class AssetCreate(SQLModel):
-    status: bool = Field(default=True)
-
     category: str = Field(max_length=255)
     type: str = Field(max_length=255)
     brand: str = Field(max_length=255)
-    model: str = Field(max_length=255)
+    name: str = Field(max_length=255)
     supplier: str = Field(max_length=255)
 
     serial_no: str = Field(max_length=255)
@@ -25,7 +24,7 @@ class AssetCreate(SQLModel):
 
     manager_name: str = Field(max_length=255)
     status: str = Field(max_length=255)
-    depreciation: int = Field(default=0)
+    depreciation: Decimal = Field(default=Decimal("0.00"))
 
 
 class AssetRead(SQLModel):
@@ -34,7 +33,7 @@ class AssetRead(SQLModel):
     category: str
     type: str
     brand: str
-    model: str
+    name: str
     supplier: str
 
     serial_no: str
@@ -50,7 +49,7 @@ class AssetRead(SQLModel):
 
     manager_name: str
     status: str
-    depreciation: int
+    depreciation: Decimal
 
     created_at: datetime | None
     updated_at: datetime | None
@@ -60,7 +59,7 @@ class AssetUpdate(SQLModel):
     category: str | None = None
     type: str | None = None
     brand: str | None = None
-    model: str | None = None
+    name: str | None = None
     supplier: str | None = None
 
     serial_no: str | None = None
@@ -76,7 +75,7 @@ class AssetUpdate(SQLModel):
 
     manager_name: str | None = None
     status: str | None = None
-    depreciation: int | None = None
+    depreciation: Decimal | None = None
 
 
 class AssetDelete(SQLModel):
