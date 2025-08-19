@@ -15,6 +15,5 @@ class Movements(BaseModel, table=True):
     return_date: datetime
     return_due_date: datetime
 
-    # enum 검토 필요
     approval_status: str = Field(max_length=255, default="pending")
     status: str = Field(max_length=255, default="pending")
