@@ -1,9 +1,10 @@
-from datetime import datetime
-from pydantic import BaseModel, Field
+from datetime import datetime, timezone
+
+from sqlmodel import Field, SQLModel
 
 
-class Movements(BaseModel, table=True):
-    __tablename__ = "asset_logs"
+class Movements(SQLModel, table=True):
+    __tablename__ = "movements"
 
     id: int | None = Field(default=None, primary_key=True)
     asset_id: int = Field(foreign_key="assets.id")
@@ -11,8 +12,10 @@ class Movements(BaseModel, table=True):
 
     purpose: str = Field(max_length=255)
 
-    rental_date: datetime | None = Field(default=datetime.now())
-    return_date: datetime
+    rental_date: datetime | None = Field(
+        default_factory=lambda: datetime.now(timezone.utc)
+    )
+    return_date: datetime | None = Field(default=None)
     return_due_date: datetime
 
     approval_status: str = Field(max_length=255, default="pending")
