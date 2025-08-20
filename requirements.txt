@@ -40,3 +40,5 @@ watchfiles==1.1.0
 websockets==15.0.1
 sqlalchemy==2.0.43
 sqlmodel==0.0.24
+pytest==8.4.1
+psycopg[binary]==3.2.9
