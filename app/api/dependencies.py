@@ -16,3 +16,7 @@ def get_movement_service() -> MovementService:
 	return service
 
 
+def get_notification_service() -> NotificationService:
+	repository = NotificationRepository()
+	service = NotificationService(repository)
+	return service
