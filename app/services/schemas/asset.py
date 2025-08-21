@@ -1,30 +1,30 @@
 from datetime import date, datetime
 from decimal import Decimal
 
-from sqlmodel import SQLModel
+from sqlmodel import Field, SQLModel
 
 
 class AssetCreate(SQLModel):
-    category: str
-    type: str
-    brand: str
-    name: str
-    supplier: str
+    category: str = Field(max_length=255)
+    type: str = Field(max_length=255)
+    brand: str = Field(max_length=255)
+    name: str = Field(max_length=255)
+    supplier: str = Field(max_length=255)
 
-    serial_no: str
-    invoice_no: str
+    serial_no: str = Field(max_length=255)
+    invoice_no: str = Field(max_length=255)
 
     purchase_date: date
     warranty_start_date: date
     warranty_end_date: date
 
-    location: str
-    assigned_campus: str
-    assigned_department: str
+    location: str = Field(max_length=255)
+    assigned_campus: str = Field(max_length=255)
+    assigned_department: str = Field(max_length=255)
 
-    manager_name: str
-    status: str
-    depreciation: Decimal
+    manager_name: str = Field(max_length=255)
+    status: str = Field(max_length=255)
+    depreciation: Decimal = Field(default=Decimal("0.00"))
 
 
 class AssetRead(SQLModel):
