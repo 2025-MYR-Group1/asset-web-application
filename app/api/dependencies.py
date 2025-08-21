@@ -2,6 +2,8 @@ from app.repositories.asset_repository import AssetRepository
 from app.services.asset_service import AssetService
 from app.repositories.movement_repository import MovementRepository
 from app.services.movement_service import MovementService
+from app.repositories.notification_repository import NotificationRepository
+from app.services.notification_service import NotificationService
 
 
 def get_asset_service() -> AssetService:
