@@ -2,10 +2,15 @@ from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 
 from app.api.routers import api_router
+from app.db.session import create_db_and_tables
 
 
 def create_app() -> FastAPI:
 	app = FastAPI(title="Asset Web Application", version="0.1.0")
+
+	# @app.on_event("startup")
+	# def on_startup() -> None:
+	# 	create_db_and_tables()
 
 	@app.get("/health", tags=["health"])  # 간단 헬스체크
 	def health_check() -> dict:
