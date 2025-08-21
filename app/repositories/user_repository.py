@@ -23,7 +23,11 @@ class UserRepository:
         return user
 
     def increment_token_version(self, session: Session, user: Users) -> Users:
-        user.token_version += 1
+        try:
+            current_version = int(user.token_version) if user.token_version is not None else 0
+        except (TypeError, ValueError):
+            current_version = 0
+        user.token_version = current_version + 1
         session.add(user)
         session.commit()
         session.refresh(user)
