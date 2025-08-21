@@ -1,8 +1,8 @@
-from datetime import datetime
-from pydantic import BaseModel, Field
+from datetime import datetime, timezone
+from sqlmodel import Field, SQLModel
 
 
-class AssetLogs(BaseModel, table=True):
+class AssetLogs(SQLModel, table=True):
     __tablename__ = "asset_logs"
 
     id: int | None = Field(default=None, primary_key=True)
