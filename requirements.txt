@@ -42,3 +42,5 @@ sqlalchemy==2.0.43
 sqlmodel==0.0.24
 pytest==8.4.1
 psycopg[binary]==3.2.9
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4

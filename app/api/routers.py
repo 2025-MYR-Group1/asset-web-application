@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from app.api.endpoints import assets, movements
+from app.api.endpoints import assets, movements, auth
 
 
 api_router = APIRouter()
@@ -7,3 +7,4 @@ api_router = APIRouter()
 # 서브 라우터 마운트
 api_router.include_router(assets.router, prefix="/assets", tags=["assets"])
 api_router.include_router(movements.router, prefix="/movements", tags=["movements"])
+api_router.include_router(auth.router, prefix="/auth", tags=["auth"])
