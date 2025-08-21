@@ -13,4 +13,4 @@ class AssetLogs(BaseModel, table=True):
     old_value: str = Field(max_length=255)
     new_value: str = Field(max_length=255)
 
-    created_at: datetime | None = Field(default=datetime.now())
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))

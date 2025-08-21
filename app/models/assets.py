@@ -1,4 +1,4 @@
-from datetime import date, datetime
+from datetime import date, datetime, timezone
 from decimal import Decimal
 
 from sqlmodel import Field, SQLModel
@@ -35,5 +35,5 @@ class Assets(SQLModel, table=True):
         sa_column=Column(Numeric(12, 2), nullable=False, server_default="0")
     )
 
-    created_at: datetime | None = Field(default=datetime.now())
-    updated_at: datetime | None = Field(default=datetime.now())
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    updated_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
